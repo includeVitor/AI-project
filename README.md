@@ -36,3 +36,6 @@
 # Tecnicas
     Tokenise 
     Contar o termo mais usado, mas não necessáriamente é o mais relevante.
+
+#Refencias
+https://marcobonzanini.com/2015/03/02/mining-twitter-data-with-python-part-1/
