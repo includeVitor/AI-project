@@ -1,15 +1,20 @@
 from tweepy import Stream
 from tweepy.streaming import StreamListener
 
-class Colletor(StreamListener):
-    
-    def __init__(self):
-        print('Coletando dados')
-                             
-    def getData(self, data):
+
+class DataCollector(StreamListener):
+
+    def on_data(self, data):
         try:
-            with open('tweets.json', 'a') as f:
+            with open('data-ciro.jsonl', 'a') as f:
                 f.write(data)
+                return True
         except Exception as e:
-            print("Erro nos dados: {0}".format(e))
- 
+            print(e)
+        return True
+
+    def on_error(self, status):
+        print(status)
+        return True
+        
+

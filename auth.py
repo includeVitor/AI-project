@@ -1,13 +1,17 @@
 import tweepy
 
-consumer_key = ''
-consumer_secret = ''
-access_token = ''
-access_secret = ''
+class Auth:
 
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret )
-auth.set_access_token(access_token, access_secret)
-
-api = tweepy.API(auth)
-
-public_tweets = api.home_timeline()
+    def __init__(self):
+        self._consumer_key = ''
+        self._consumer_secret = ''
+        self._access_token = ''
+        self._access_secret = ''
+    
+    def connect(self): 
+        try:
+            auth = tweepy.OAuthHandler(self._consumer_key, self._consumer_secret)
+            auth.set_access_token(self._access_token, self._access_secret)
+            return auth
+        except Exception as e:
+            print(e)
