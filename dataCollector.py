@@ -6,7 +6,7 @@ class DataCollector(StreamListener):
 
     def on_data(self, data):
         try:
-            with open('data-ciro.jsonl', 'a') as f:
+            with open('data-class.jsonl', 'a') as f:
                 f.write(data)
                 return True
         except Exception as e:

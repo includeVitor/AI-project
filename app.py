@@ -16,15 +16,15 @@ from nltk.classify import NaiveBayesClassifier
 from nltk.corpus import names
 
 def app():
-    tokenize = []
-    #auth = Auth()
-    #auth = auth.connect()
-    #streaming_data = DataCollector()
-    #streaming_data = tweepy.Stream(auth, DataCollector())
-    #streaming_data.filter(track=['Ciro'])
-    tokenize = []
-    tokens = TokensIdentify()
-    tokenize = tokens.dict_tweets('data-ciro.jsonl')
+    #tokenize = []
+    auth = Auth()
+    auth = auth.connect()
+    streaming_data = DataCollector()
+    streaming_data = tweepy.Stream(auth, DataCollector())
+    streaming_data.filter(track=['#python'])
+    #tokenize = []
+    #tokens = TokensIdentify()
+    #tokenize = tokens.dict_tweets('data-ciro.jsonl')
     #count_all = Counter()
 
    # punctuation = list(string.punctuation)
@@ -32,25 +32,25 @@ def app():
    # stop = stopwords.words('portuguese') + punctuation + ['rt', 'via', 'Ciro','RT','...','Gomes','O','ção',"...","disse","ão","é", "á", "ciro","Não"]
 
            
-    positive_vocab = [ 'impressionante', 'excepcional', 'fantástico', 'formidável', 'Boa', 'bom', 'ótimo', ':)' ]
-    negative_vocab = [ 'mau', 'terrivel','inútil', 'ódio', ':(' ]
-    neutral_vocab = [ 'filme','o','som','estava','é','atores','fez','sabe','palavras','não' ]
+  #  positive_vocab = [ 'impressionante', 'excepcional', 'fantástico', 'formidável', 'Boa', 'bom', 'ótimo', ':)' ]
+   # negative_vocab = [ 'mau', 'terrivel','inútil', 'ódio', ':(' ]
+    #neutral_vocab = [ 'filme','o','som','estava','é','atores','fez','sabe','palavras','não' ]
 
-    def word_feats(sentence):
-        return dict([(s, True) for s in sentence])
+    #def word_feats(sentence):
+     #   return dict([(s, True) for s in sentence])
  
-    positive_features = [(word_feats(pos), 'pos') for pos in positive_vocab]
-    negative_features = [(word_feats(neg), 'neg') for neg in negative_vocab]
-    neutral_features = [(word_feats(neu), 'neu') for neu in neutral_vocab]
+#    positive_features = [(word_feats(pos), 'pos') for pos in positive_vocab]
+ #   negative_features = [(word_feats(neg), 'neg') for neg in negative_vocab]
+  #  neutral_features = [(word_feats(neu), 'neu') for neu in neutral_vocab]
 
-    train_set = negative_features + positive_features + neutral_features
+  #  train_set = negative_features + positive_features + neutral_features
 
-    classifier = NaiveBayesClassifier.train(train_set)
+   # classifier = NaiveBayesClassifier.train(train_set)
 
 
-    neg = 0 
-    pos = 0
-    sentence = []
+    #neg = 0 
+    #pos = 0
+    #sentence = []
     ##for t in tokenize:
        # sentence = tokens.preprocess(t['text'])
         #for s in sentence:
@@ -74,11 +74,11 @@ def app():
  #   print('Negative: ' + str(float(neg)/t*100))
     
 
-    word_freq = [['Positivo', 90.82],['Negativo',9.18]]
-    labels, freq = zip(*word_freq)
-    data = {'data': freq, 'x': labels}
-    bar = vincent.Bar(data, iter_idx='x')
-    bar.to_json('term_freq-ciro-sentiments.json')
+    #word_freq = [['Positivo', 90.82],['Negativo',9.18]]
+    #labels, freq = zip(*word_freq)
+    #data = {'data': freq, 'x': labels}
+    #bar = vincent.Bar(data, iter_idx='x')
+    #bar.to_json('term_freq-ciro-sentiments.json')
 
 
 
