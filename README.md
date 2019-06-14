@@ -1,22 +1,22 @@
 # Análise de Sentimentos com AI.
 
-#1 Criar seu app no twitter.
+# 1 Criar seu app no twitter.
 
-#2 Utilizar o framework tweepy. (Oauth) 
+# 2 Utilizar o framework tweepy. (Oauth) 
     Instalar pip no Windows ( console python -m pip install -U pip ) Gerenciador de pacotes do python
     Instalar o tweepy ( pip install tweepy )
     Instalar nltk ( pip install nltk )
     executar o script no python import nltk nltk.download('punkt')
     A cada requisição na API do twitter tem que esperar 15 minutos.
 
-#3 Filtrando os tweets de uma # em um arquivo python.json
+# 3 Filtrando os tweets de uma # em um arquivo python.json
     Contar quantos tweets foram no PowerShell ( windows )  Get-Content python.json | Measure-Object -Line
 
-#Descrição
+# Descrição
     Utilizando a linguagem de programação python e o framework tweepy podemos fazer requisições na API REST do  tweeter,
     pegando dados.
 
-#o objeto tweet possuí
+# o objeto tweet possuí
     text: the text of the tweet itself
     created_at: the date of creation
     favorite_count, retweet_count: the number of favourites and retweets
@@ -37,5 +37,5 @@
     Tokenise 
     Contar o termo mais usado, mas não necessáriamente é o mais relevante.
 
-#Refencias
+# Refencias
 https://marcobonzanini.com/2015/03/02/mining-twitter-data-with-python-part-1/;
